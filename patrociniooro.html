@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Índice</title>
+    <style>
+        @font-face {
+            font-family: 'FS Joy';
+            src: url('path-to-font/FSJoy-Regular.woff2') format('woff2'), url('path-to-font/FSJoy-Regular.woff') format('woff');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'FS Joy', sans-serif;
+            background-image: url('MULTIMEDIA.jpg'); /* Fondo constante */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ocupa toda la pantalla */
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+            gap: 10px; /* Separación entre las imágenes */
+            text-align: center;
+        }
+
+        .item {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .item img {
+            max-width:280px; /* Tamaño máximo de las imágenes */
+            transition: transform 0.3s ease; /* Animación al pasar el cursor */
+        }
+
+        .item img:hover {
+            transform: scale(1.1); /* Efecto de zoom al pasar el cursor */
+        }
+
+        .item.inactive img {
+            filter: grayscale(100%); /* Blanco y negro para inactivos */
+            cursor: not-allowed; /* Sin acción */
+        }
+
+        .item span {
+            display: block;
+            margin-top: 10px;
+            font-size: 3rem; /* Tamaño de las letras */
+            font-weight: bold; /* Letras en negrita */
+            color: white; /* Color del texto */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mayor legibilidad */
+        }
+
+        .item.inactive span {
+            color: rgba(255, 255, 255, 0.5); /* Texto gris para inactivos */
+        }
+
+        /* Ventanas emergentes */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(255, 140, 0, 0.8);
+            z-index: 10;
+        }
+
+        .popup.active {
+            display: block;
+        }
+
+        .popup-close {
+            margin-top: 10px;
+            padding: 10px 10px;
+            border: none;
+            background-color: orange;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .popup-close:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="item">
+            <a href="oro.html"><img src="oro.png" alt="oro"></a>
+            <span>Patrocinio ORO</span>
+        </div>
+        <div class="item">
+            <a href="plata.html"><img src="plata.png" alt="plata"></a>
+            <span>Patrocinio PLATA</span>
+        </div>
+        <div class="item">
+            <a href="bronce.html"><img src="bronce.png" alt="bronce"></a>
+            <span>Patrocinio BRONCE</span>
+        </div>
+         <div class="item">
+            <a href="bronce.html"><img src="colaboracion.png" alt="colaboracion"></a>
+            <span>Colaboración por Carrera</span>
+        </div>         
+    </div>
+
+    <script>
+        function showPopup(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closePopup(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+    </script>
+</body>
+</html>
